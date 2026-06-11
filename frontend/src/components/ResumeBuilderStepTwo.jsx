@@ -381,10 +381,10 @@ export default function ResumeBuilderStepTwo() {
       </div>
 
       {/* Split screen */}
-      <div className="mx-auto flex w-full max-w-400 flex-1 flex-col lg:flex-row lg:overflow-hidden">
+      <div className="mx-auto flex w-full max-w-7xl flex-1 flex-col lg:flex-row lg:overflow-hidden">
         {/* Left: form */}
         <div className="w-full shrink-0 overflow-y-auto border-r border-slate-200 bg-white lg:w-[40%] lg:max-h-[calc(100vh-4.5rem-88px)]">
-          <div className="space-y-8 p-5 sm:p-6">
+          <div className="space-y-6 sm:space-y-8 p-4 sm:p-5 lg:p-6">
             {/* Personal */}
             <section className="rounded-2xl border border-slate-100 bg-slate-50/50 p-5">
               <SectionHeading title="Personal Details" subtitle="How employers will reach you" />
@@ -986,24 +986,24 @@ export default function ResumeBuilderStepTwo() {
 
         {/* Right: preview */}
         <div className="relative flex w-full flex-col bg-slate-100 lg:w-[60%] lg:max-h-[calc(100vh-4.5rem-88px)]">
-          <div className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 bg-slate-100/95 px-4 py-3 backdrop-blur">
+          <div className="sticky top-0 z-10 flex flex-wrap items-center justify-between gap-2 border-b border-slate-200 bg-slate-100/95 px-3 sm:px-4 py-2 sm:py-3 backdrop-blur">
             <div>
-              <div className="mb-1 inline-flex items-center rounded-full border border-gray-200 bg-white px-2.5 py-0.5 text-[11px] font-semibold text-gray-700">
+              <div className="mb-1 inline-flex items-center rounded-full border border-gray-200 bg-white px-2 sm:px-2.5 py-0.5 text-[10px] sm:text-[11px] font-semibold text-gray-700">
                 {templateLabel}
               </div>
-              <h2 className="text-sm font-semibold text-slate-800">Live Preview</h2>
-              <p className="text-xs text-slate-500">Updates as you type</p>
+              <h2 className="text-xs sm:text-sm font-semibold text-slate-800">Live Preview</h2>
+              <p className="text-[10px] sm:text-xs text-slate-500">Updates as you type</p>
             </div>
             <button
               type="button"
               onClick={() => setFullPreviewOpen(true)}
-              className="inline-flex items-center gap-2 rounded-xl bg-white px-4 py-2 text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-200 transition hover:bg-slate-50"
+              className="inline-flex items-center gap-2 rounded-xl bg-white px-3 sm:px-4 py-2 text-xs sm:text-sm font-semibold text-slate-800 shadow-sm ring-1 ring-slate-200 transition hover:bg-slate-50"
             >
-              <Eye className="h-4 w-4 text-gray-600" />
+              <Eye className="h-3 sm:h-4 w-3 sm:w-4 text-gray-600" />
               Full Preview
             </button>
           </div>
-          <div className="flex-1 overflow-y-auto p-4">
+          <div className="flex-1 overflow-y-auto p-3 sm:p-4">
             <ScaledTemplatePreview templateId={selectedTemplate} templateData={templateData} />
           </div>
         </div>
@@ -1018,7 +1018,7 @@ export default function ResumeBuilderStepTwo() {
 
       {/* Sticky footer */}
       <footer className="sticky bottom-0 z-20 border-t border-slate-200 bg-white/95 px-4 py-4 backdrop-blur sm:px-6">
-        <div className="mx-auto flex max-w-400 items-center justify-between gap-4">
+        <div className="mx-auto flex max-w-full items-center justify-between gap-4">
           <button
             type="button"
             onClick={() => navigate('/resume-builder/step-1')}

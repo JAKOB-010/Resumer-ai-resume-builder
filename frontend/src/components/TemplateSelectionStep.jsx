@@ -120,7 +120,7 @@ export default function TemplateSelectionStep() {
 
       {previewTemplate && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4">
-          <div className="relative h-full w-full max-w-6xl overflow-auto rounded-xl bg-white p-6">
+          <div className="relative h-full w-full max-w-6xl overflow-auto rounded-xl bg-white p-4 sm:p-6">
             <div className="mb-4 flex items-center justify-between">
               <h2 className="text-xl font-bold text-slate-900">{previewTemplate.label} Full View</h2>
               <button

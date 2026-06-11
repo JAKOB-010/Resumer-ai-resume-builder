@@ -342,7 +342,7 @@ export default function ResumeBuilderStepThree() {
         `}
       </style>
       <section className="min-h-[calc(100vh-4.5rem)] bg-slate-50 px-4 py-10 sm:px-6">
-      <div className="mx-auto max-w-4xl">
+      <div className="mx-auto max-w-7xl">
         <p className="text-xs font-semibold uppercase tracking-wider text-gray-600">Step 3</p>
         <h1 className="mt-1 text-3xl font-bold text-slate-900">Final Review & Download</h1>
         <p className="mt-2 text-slate-600">

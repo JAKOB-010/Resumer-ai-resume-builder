@@ -294,7 +294,7 @@ export default function ATSChecker({ onBack }) {
                     e.stopPropagation();
                     open();
                   }}
-                  className="mt-8 w-full max-w-sm rounded-xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-gray-500/25 transition hover:bg-gray-800 sm:text-base"
+                  className="mt-8 w-full max-w-full sm:max-w-sm rounded-xl bg-black px-6 py-3.5 text-sm font-semibold text-white shadow-lg shadow-gray-500/25 transition hover:bg-gray-800 sm:text-base"
                 >
                   Upload your resume
                 </button>
@@ -307,7 +307,7 @@ export default function ATSChecker({ onBack }) {
                       analyze();
                     }}
                     disabled={loading}
-                    className="mt-3 w-full max-w-sm rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 disabled:opacity-60 sm:text-base"
+                    className="mt-3 w-full max-w-full sm:max-w-sm rounded-xl border border-gray-200 bg-white px-6 py-3 text-sm font-semibold text-gray-700 transition hover:bg-gray-50 disabled:opacity-60 sm:text-base"
                   >
                     {loading ? 'Analyzing…' : 'Run AI check'}
                   </button>
@@ -351,7 +351,7 @@ export default function ATSChecker({ onBack }) {
               aria-hidden
               className="pointer-events-none absolute -inset-6 rounded-[2.5rem] bg-linear-to-br from-gray-200/40 via-gray-100/30 to-transparent blur-2xl"
             />
-            <div className="relative w-full max-w-md">
+            <div className="relative w-full max-w-full sm:max-w-md">
               <ResultsPreviewCard live={livePreview} />
             </div>
           </div>

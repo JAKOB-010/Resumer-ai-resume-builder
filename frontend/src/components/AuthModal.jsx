@@ -57,19 +57,19 @@ export default function AuthModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="relative overflow-hidden w-full max-w-4xl min-h-[500px] bg-white rounded-2xl shadow-2xl flex">
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+      <div className="relative overflow-hidden w-full max-w-4xl min-h-125 bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-[60] rounded-full bg-white/80 p-2 text-gray-600 hover:bg-white transition-colors"
+          className="absolute right-4 top-4 z-60 rounded-full bg-white/80 p-2 text-gray-600 hover:bg-white transition-colors"
         >
           <X className="h-5 w-5" />
         </button>
 
         {/* Sign-In Form Container (Left Side) */}
         <div
-          className={`absolute top-0 left-0 w-1/2 h-full flex flex-col items-center justify-center px-12 bg-white transition-all duration-700 ease-in-out ${
-            isSignUp ? 'opacity-0 z-0 translate-x-12' : 'opacity-100 z-10 translate-x-0'
+          className={`relative w-full md:w-1/2 h-full flex flex-col items-center justify-center px-6 md:px-12 bg-white transition-all duration-700 ease-in-out ${
+            isSignUp ? 'opacity-0 z-0 translate-x-12 md:translate-x-12' : 'opacity-100 z-10 translate-x-0'
           }`}
         >
           <div className="w-full max-w-sm flex flex-col items-center text-center">
@@ -80,6 +80,15 @@ export default function AuthModal({ isOpen, onClose }) {
                 {error}
               </div>
             )}
+
+            {/* Mobile toggle button */}
+            <button
+              type="button"
+              onClick={() => setIsSignUp(true)}
+              className="md:hidden mb-4 text-sm text-gray-600 hover:text-gray-800 underline"
+            >
+              Don't have an account? Sign Up
+            </button>
 
             <button
               onClick={handleGoogleAuth}
@@ -148,8 +157,8 @@ export default function AuthModal({ isOpen, onClose }) {
 
         {/* Sign-Up Form Container (Right Side) */}
         <div
-          className={`absolute top-0 right-0 w-1/2 h-full flex flex-col items-center justify-center px-12 bg-white transition-all duration-700 ease-in-out ${
-            isSignUp ? 'opacity-100 z-10 translate-x-0' : 'opacity-0 z-0 -translate-x-12'
+          className={`relative w-full md:w-1/2 h-full flex flex-col items-center justify-center px-6 md:px-12 bg-white transition-all duration-700 ease-in-out ${
+            isSignUp ? 'opacity-100 z-10 translate-x-0' : 'opacity-0 z-0 -translate-x-12 md:-translate-x-12'
           }`}
         >
           <div className="w-full max-w-sm flex flex-col items-center text-center">
@@ -160,6 +169,15 @@ export default function AuthModal({ isOpen, onClose }) {
                 {error}
               </div>
             )}
+
+            {/* Mobile toggle button */}
+            <button
+              type="button"
+              onClick={() => setIsSignUp(false)}
+              className="md:hidden mb-4 text-sm text-gray-600 hover:text-gray-800 underline"
+            >
+              Already have an account? Sign In
+            </button>
 
             <button
               onClick={handleGoogleAuth}
@@ -234,7 +252,7 @@ export default function AuthModal({ isOpen, onClose }) {
 
         {/* Sliding Purple Overlay (Top Layer) */}
         <div
-          className={`absolute top-0 left-1/2 w-1/2 h-full bg-gray-600 text-white z-50 flex flex-col justify-center items-center px-10 transition-transform duration-700 ease-in-out ${
+          className={`hidden md:flex absolute top-0 left-1/2 w-1/2 h-full bg-gray-600 text-white z-50 flex-col justify-center items-center px-10 transition-transform duration-700 ease-in-out ${
             isSignUp ? '-translate-x-full' : 'translate-x-0'
           }`}
         >

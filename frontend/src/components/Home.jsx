@@ -43,9 +43,9 @@ export default function Home({ onCreate, onCheckATS }) {
     <div className="w-full">
       {/* Hero */}
       <section className="bg-white">
-        <div className="max-w-6xl mx-auto px-6 pt-16 pb-18 text-center">
-          <div className="mb-7">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 text-sm text-slate-700 bg-white">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 sm:pt-16 pb-12 sm:pb-18 text-center">
+          <div className="mb-5 sm:mb-7">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 text-xs sm:text-sm text-slate-700 bg-white">
               <span className="text-xs tracking-tight">⭐⭐⭐⭐⭐</span>
               <span className="mx-1 text-slate-300">|</span>
               <span>4.5 rating</span>
@@ -54,26 +54,26 @@ export default function Home({ onCreate, onCheckATS }) {
             </div>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-slate-900 leading-tight tracking-tight">
             <div>Build your ATS Resume</div>
             <div className="text-gray-700">in just 2 minutes for FREE!</div>
           </h1>
 
-          <p className="mt-4 text-lg text-slate-600">20+ ATS-friendly templates trusted by recruiters</p>
+          <p className="mt-3 sm:mt-4 text-base sm:text-lg text-slate-600">20+ ATS-friendly templates trusted by recruiters</p>
 
-          <p className="mt-5 text-3xl font-bold text-slate-900">Land 8x more interviews</p>
+          <p className="mt-4 sm:mt-5 text-2xl sm:text-3xl font-bold text-slate-900">Land 8x more interviews</p>
 
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div className="mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
             <button
               onClick={onCreate}
-              className="w-76 max-w-full px-8 py-3 bg-gray-200 text-gray-800 rounded-xl shadow-md hover:bg-gray-300 font-semibold"
+              className="w-full sm:w-auto max-w-full px-6 sm:px-8 py-3 bg-gray-200 text-gray-800 rounded-xl shadow-md hover:bg-gray-300 font-semibold text-sm sm:text-base"
             >
               Create New Resume
             </button>
 
             <button
               onClick={onCheckATS}
-              className="w-76 max-w-full px-6 py-3 bg-gray-200 border border-gray-300 text-gray-700 rounded-xl shadow-sm hover:bg-gray-300 font-semibold"
+              className="w-full sm:w-auto max-w-full px-4 sm:px-6 py-3 bg-gray-200 border border-gray-300 text-gray-700 rounded-xl shadow-sm hover:bg-gray-300 font-semibold text-sm sm:text-base"
             >
               Check Resume ATS Score
             </button>
@@ -82,13 +82,13 @@ export default function Home({ onCreate, onCheckATS }) {
       </section>
 
       {/* Templates */}
-      <section className="max-w-6xl mx-auto px-6 pb-12">
-        <div className="flex items-center justify-between mb-5">
-          <h3 className="text-3xl font-bold text-slate-900">Get started with a template</h3>
-          <button onClick={() => navigate('/resume-builder/step-1')} className="text-gray-600 font-semibold text-lg hover:text-gray-800 transition-colors">See All ›</button>
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4 sm:mb-5">
+          <h3 className="text-2xl sm:text-3xl font-bold text-slate-900">Get started with a template</h3>
+          <button onClick={() => navigate('/resume-builder/step-1')} className="text-gray-600 font-semibold text-base sm:text-lg hover:text-gray-800 transition-colors self-start sm:self-auto">See All ›</button>
         </div>
-        <div className="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-          <div className="flex gap-4 overflow-x-auto py-4">
+        <div className="bg-white border border-slate-200 rounded-2xl p-4 sm:p-5 shadow-sm">
+          <div className="flex gap-3 sm:gap-4 overflow-x-auto py-3 sm:py-4 -mx-4 sm:mx-0 px-4 sm:px-0">
             {visibleTemplates.map((t) => (
               <div 
                 key={t.id} 
@@ -96,17 +96,17 @@ export default function Home({ onCreate, onCheckATS }) {
                   setSelectedTemplate(t.id);
                   navigate('/resume-builder/step-1');
                 }}
-                className="min-w-64 bg-white border border-slate-300 rounded-xl p-2 shadow-[0_2px_8px_rgba(2,6,23,0.06)] cursor-pointer hover:border-gray-400 transition-colors"
+                className="min-w-50 sm:min-w-64 bg-white border border-slate-300 rounded-xl p-2 shadow-[0_2px_8px_rgba(2,6,23,0.06)] cursor-pointer hover:border-gray-400 transition-colors shrink-0"
               >
                 <img
                   src={t.preview}
                   alt={`${t.label} template preview`}
-                  className="h-56 w-full object-cover object-top bg-slate-100"
+                  className="h-44 sm:h-56 w-full object-cover object-top bg-slate-100"
                   onError={(e) => { e.target.style.display = 'none'; }}
                 />
-                <div className="mt-3 flex items-center justify-between px-1">
-                  <div className="text-sm font-medium text-slate-700">{t.label}</div>
-                  <button className="text-sm text-gray-600 font-semibold">Preview</button>
+                <div className="mt-2 sm:mt-3 flex items-center justify-between px-1">
+                  <div className="text-xs sm:text-sm font-medium text-slate-700">{t.label}</div>
+                  <button className="text-xs sm:text-sm text-gray-600 font-semibold">Preview</button>
                 </div>
               </div>
             ))}

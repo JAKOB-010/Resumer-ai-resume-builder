@@ -153,8 +153,8 @@ function App() {
   return (
     <div className="min-h-screen bg-white text-slate-900">
       <header className="sticky top-0 z-50 bg-white border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex h-18 items-center justify-between">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+          <div className="flex h-16 md:h-18 items-center justify-between">
             {/* Left: logo */}
             <div className="flex items-center gap-2">
               <div className="p-1 rounded-md bg-gray-100">
@@ -178,7 +178,7 @@ function App() {
               {!user ? (
                 <button
                   onClick={() => setAuthModalOpen(true)}
-                  className="px-4 py-2 rounded-lg bg-black text-white text-sm font-semibold hover:bg-gray-800 transition-colors"
+                  className="px-3 py-2 sm:px-4 sm:py-2 rounded-lg bg-black text-white text-xs sm:text-sm font-semibold hover:bg-gray-800 transition-colors"
                 >
                   Get Started
                 </button>
@@ -203,7 +203,7 @@ function App() {
                   </button>
 
                   {profileDropdownOpen && (
-                    <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
+                    <div className="absolute right-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-60">
                       <button
                         onClick={() => handleNavigate('/my-resumes')}
                         className="w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100 flex items-center gap-3"
@@ -257,48 +257,50 @@ function App() {
       </header>
 
       {mobileOpen && (
-        <div className="lg:hidden fixed inset-0 z-40">
+        <div className="lg:hidden fixed inset-0 z-60">
           <div className="absolute inset-0 bg-black/40" onClick={() => setMobileOpen(false)} />
-          <div className="absolute top-16 left-0 right-0 bg-white p-4 shadow-md" ref={menuRef}>
-            {!user ? (
-              <button
-                onClick={() => { setMobileOpen(false); setAuthModalOpen(true); }}
-                className="w-full px-4 py-2 bg-gray-300 text-gray-800 rounded-md text-sm font-semibold"
-              >
-                Get Started
-              </button>
-            ) : (
-              <div className="space-y-2">
+          <div className="absolute top-16 left-0 right-0 bg-white shadow-lg border-t border-gray-200" ref={menuRef}>
+            <div className="p-4">
+              {!user ? (
                 <button
-                  onClick={() => { setMobileOpen(false); handleNavigate('/my-resumes'); }}
-                  className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 rounded-md flex items-center gap-3"
+                  onClick={() => { setMobileOpen(false); setAuthModalOpen(true); }}
+                  className="w-full px-4 py-3 bg-gray-300 text-gray-800 rounded-lg text-sm font-semibold"
                 >
-                  <FileText className="w-4 h-4" />
-                  My Resumes
+                  Get Started
                 </button>
-                <button
-                  onClick={() => { setMobileOpen(false); handleNavigate('/ats-checker'); }}
-                  className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 rounded-md flex items-center gap-3"
-                >
-                  <Target className="w-4 h-4" />
-                  ATS Checker
-                </button>
-                <button
-                  onClick={() => { setMobileOpen(false); handleNavigate('/resume-builder/step-1'); }}
-                  className="w-full px-4 py-2 text-left text-sm hover:bg-gray-100 rounded-md flex items-center gap-3"
-                >
-                  <Layout className="w-4 h-4" />
-                  Build Resume
-                </button>
-                <button
-                  onClick={() => { setMobileOpen(false); handleLogout(); }}
-                  className="w-full px-4 py-2 text-left text-sm text-red-600 hover:bg-gray-100 rounded-md flex items-center gap-3"
-                >
-                  <LogOut className="w-4 h-4" />
-                  Log Out
-                </button>
-              </div>
-            )}
+              ) : (
+                <div className="space-y-1">
+                  <button
+                    onClick={() => { setMobileOpen(false); handleNavigate('/my-resumes'); }}
+                    className="w-full px-4 py-3 text-left text-sm hover:bg-gray-100 rounded-lg flex items-center gap-3"
+                  >
+                    <FileText className="w-4 h-4" />
+                    My Resumes
+                  </button>
+                  <button
+                    onClick={() => { setMobileOpen(false); handleNavigate('/ats-checker'); }}
+                    className="w-full px-4 py-3 text-left text-sm hover:bg-gray-100 rounded-lg flex items-center gap-3"
+                  >
+                    <Target className="w-4 h-4" />
+                    ATS Checker
+                  </button>
+                  <button
+                    onClick={() => { setMobileOpen(false); handleNavigate('/resume-builder/step-1'); }}
+                    className="w-full px-4 py-3 text-left text-sm hover:bg-gray-100 rounded-lg flex items-center gap-3"
+                  >
+                    <Layout className="w-4 h-4" />
+                    Build Resume
+                  </button>
+                  <button
+                    onClick={() => { setMobileOpen(false); handleLogout(); }}
+                    className="w-full px-4 py-3 text-left text-sm text-red-600 hover:bg-gray-100 rounded-lg flex items-center gap-3"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    Log Out
+                  </button>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       )}
