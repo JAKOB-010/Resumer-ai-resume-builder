@@ -57,11 +57,11 @@ export default function AuthModal({ isOpen, onClose }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm">
-      <div className="relative overflow-hidden w-full max-w-4xl min-h-[000px]0px] bg-white rounded-2xl shadow-2xl flex">
+    <div className="fixed inset-0 z-40 flex items-center justify-center bg-black/50 backdrop-blur-sm">
+      <div className="relative overflow-hidden w-full max-w-4xl min-h-[500px] bg-white rounded-2xl shadow-2xl flex">
         <button
           onClick={onClose}
-          className="absolute right-4 top-4 z-50 rounded-full bg-white/80 p-2 text-gray-600 hover:bg-white transition-colors"
+          className="absolute right-4 top-4 z-[60] rounded-full bg-white/80 p-2 text-gray-600 hover:bg-white transition-colors"
         >
           <X className="h-5 w-5" />
         </button>
