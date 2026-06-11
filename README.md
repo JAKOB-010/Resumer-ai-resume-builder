@@ -9,7 +9,7 @@ Visual-first, high-performance web suite engineered to streamline resume creatio
 ![AI](https://img.shields.io/badge/AI%20ENGINE-GROQ%20LLM-red?style=for-the-badge)
 ![License](https://img.shields.io/badge/LICENSE-MIT-yellow?style=for-the-badge)
 
-🚀 [Try Resumer AI Live (Link Coming Soon)](#)
+🚀 [Click here  to open the website ](https://resumer-ai-resume-builder.vercel.app/)
 
 ---
 
