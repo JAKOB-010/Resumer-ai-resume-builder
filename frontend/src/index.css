@@ -1,0 +1,85 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/theme";
+@import "tailwindcss/utilities";
+
+/* App base styles */
+html, body, #root { height: 100%; }
+body { background-color: #ffffff; color: #111827; }
+
+/* Font + hero helpers */
+body { font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial; }
+.hero-cta { background: linear-gradient(90deg,#7c3aed,#5b21b6); }
+.logo-title { font-family: Georgia, 'Times New Roman', Times, serif; }
+
+/* Preview paper */
+.resume-preview { width: 8.5in; min-height: 11in; }
+.preview-paper { background-color: #ffffff; color: #111827; }
+
+/* Small helpers */
+.field-label { font-size: 0.875rem; font-weight: 500; color: #374151; }
+.dark .field-label { color: #e5e7eb; }
+
+/* Infinite logo marquee — translate3d reduces motion blur vs translateX alone */
+@keyframes infinite-scroll {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.animate-infinite-scroll {
+  animation: infinite-scroll 25s linear infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-infinite-scroll {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate-infinite-scroll:hover {
+  animation-play-state: paused;
+}
+
+/* Testimonials marquee — same loop keyframes, slower pace */
+.animate-testimonials-marquee {
+  animation: infinite-scroll 42s linear infinite;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-testimonials-marquee {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+}
+.animate-testimonials-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Edge fade for horizontal marquees */
+.marquee-edge-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
+
+/* Print styles - hide UI elements during print */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+  }
+  
+  /* Ensure the resume preview container takes full width */
+  #resume-preview-container {
+    width: 100% !important;
+    min-height: auto !important;
+    box-shadow: none !important;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+}
