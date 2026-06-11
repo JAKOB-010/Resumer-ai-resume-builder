@@ -14,16 +14,17 @@ import { notFoundHandler, errorHandler } from "./middleware/error.middleware.js"
 const app = express();
 
 const PORT = process.env.PORT || 3000;
-app.use(cors({ origin: "http://localhost:5173", credentials: true }));
-app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ limit: '50mb', extended: true })); 
 
-app.use(
-  cors({
-    origin: process.env.FRONTEND_ORIGIN || "http://localhost:5173",
-    credentials: true,
-  })
-);
+// CORS configuration - allow all origins for production deployment
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: false,
+}));
+
+app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ limit: '50mb', extended: true }));
 
 app.get("/", (_req, res) => {
   res.json({

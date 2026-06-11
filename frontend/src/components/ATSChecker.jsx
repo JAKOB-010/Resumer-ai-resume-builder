@@ -3,8 +3,7 @@ import { useDropzone } from 'react-dropzone';
 import { CloudUpload, Lock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { extractResumeText } from '../lib/extractResumeText';
-
-const ANALYZE_URL = '/api/analyze';
+import { buildApiUrl } from '../lib/api';
 
 const ACCEPT = {
   'application/pdf': ['.pdf'],
@@ -193,7 +192,7 @@ export default function ATSChecker({ onBack }) {
         return;
       }
 
-      const res = await fetch(ANALYZE_URL, {
+      const res = await fetch(buildApiUrl('/api/analyze'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ resumeText }),
